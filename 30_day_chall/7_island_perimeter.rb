@@ -34,44 +34,6 @@ Explanation: The perimeter is the 16 yellow stripes in the image below:
     # will check top/bottom: array[i-1][j], array[i+1][j]
 # Return the perimeter
 
-# 148ms, 12.6mem
-def island_perimeter(grid)
-  perimeter = 0
-
-  grid.each_with_index do |row, i|
-    row.each_with_index do |square, j|
-      next if square == 0
-
-      if j == 0
-        perimeter += 1
-      else
-        perimeter += 1 if grid[i][j-1] == 0
-      end
-
-      if j == row.length - 1
-        perimeter += 1
-      else
-        perimeter += 1 if grid[i][j+1] == 0
-      end
-      
-      if i == 0
-        perimeter += 1
-      else
-        perimeter += 1 if grid[i-1][j] == 0
-      end
-
-      if i == grid.length - 1
-        perimeter += 1
-      else
-        perimeter += 1 if grid[i+1][j] == 0
-      end
-    end
-  end
-
-  perimeter
-end
-
-
 def island_perimeter(grid)
   perimeter = 0
 

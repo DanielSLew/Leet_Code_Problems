@@ -13,13 +13,6 @@
 [9] => [1,0]
 [0] => [1]
 
-# start idx search at last ele (current_ele)
-# if current_ele == 9 then change it to 0
-  # next idx = current idx - 1
-  # if next idx is more than the length of array
-    # unshift 1 to the array, and then return the array
-  # otherwise return func call to itself, passing in next idx and array
-# otherwise add one to current_ele and return the array
 
 def plus_one(digits, idx = -1)
   if digits[idx] == 9
