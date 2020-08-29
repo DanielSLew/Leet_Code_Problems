@@ -29,41 +29,7 @@ A solution set is:
 # Iterate with idx through values again, multiply current number by -1 and then check
   # array[val], which will either return nil or an array of subarrays
   # Select only the subarrays that don't include the current idx
-
-
-def three_sum(nums)
-  lookup = {}
-  results = {}
-  nums.sort!
-
-  nums.each_with_index do |x, idx1|
-    offset = idx1 + 1
-    nums[offset..-1].each_with_index do |y, idx2|
-      idx2 += offset
-      sum = x + y
-
-      if lookup[sum]
-        lookup[sum] << [idx1, idx2]
-      else
-        lookup[sum] = [[idx1, idx2]]
-      end
-    end
-  end
-
-  nums.each_with_index do |z, idx|
-    solution = lookup[-z]
-
-    if solution
-      solution.each do |(idx_x, idx_y)|
-        results[[nums[idx_x], nums[idx_y], z].sort] = 1 if (idx_x != idx) && (idx_y != idx)
-      end
-    end
-  end
-
-  results.keys
-end
-
-
+  
 def three_sum(nums)
   three_sums = {}
   last_num = {}
